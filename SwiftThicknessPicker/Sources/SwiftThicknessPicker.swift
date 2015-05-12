@@ -28,7 +28,7 @@ class SwiftThicknessPicker: UIView {
 	
 	// Additional public properties
 	
-	var cornerRadius: CGFloat = 10.0
+	var cornerRadius: CGFloat = 20.0
 	
 	// Private properties
 	
@@ -62,7 +62,7 @@ class SwiftThicknessPicker: UIView {
 		UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
 		
 		let context = UIGraphicsGetCurrentContext();
-		UIColor.yellowColor().set()
+		UIColor.grayColor().set()
 		
 		CGContextBeginPath(context);
 		CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
@@ -70,7 +70,7 @@ class SwiftThicknessPicker: UIView {
 		CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
 		CGContextClosePath(context);
 		
-		CGContextSetFillColor(context, CGColorGetComponents(UIColor.yellowColor().CGColor));
+		CGContextSetFillColor(context, CGColorGetComponents(UIColor.grayColor().CGColor));
 		CGContextFillPath(context);
 		CGContextStrokePath(context);
 		
