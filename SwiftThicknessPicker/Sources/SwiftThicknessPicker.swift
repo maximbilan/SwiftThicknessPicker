@@ -21,10 +21,18 @@ class SwiftThicknessPicker: UIView {
 		case Vertical
 	}
 	
-	// Private properties
+	// Public properties
 	
 	var delegate: SwiftThicknessPickerDelegate!
 	var direction: PickerDirection = .Horizontal
+	
+	// Additional public properties
+	
+	var cornerRadius: CGFloat = 10.0
+	
+	// Private properties
+	
+	private var image: UIImage!
 	
 	// Initialization
 	
@@ -40,6 +48,41 @@ class SwiftThicknessPicker: UIView {
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
+		
+		update()
+	}
+	
+	// Prerendering
+	
+	func generateHUEImage(size: CGSize) -> UIImage {
+		
+		var rect = CGRectMake(0, 0, size.width, size.height)
+		UIGraphicsBeginImageContextWithOptions(size, false, 0)
+		
+		UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
+		
+		let context = UIGraphicsGetCurrentContext();
+		UIColor.yellowColor().set()
+		
+		CGContextBeginPath(context);
+		CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
+		CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMidY(rect));
+		CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+		CGContextClosePath(context);
+		
+		CGContextSetFillColor(context, CGColorGetComponents(UIColor.yellowColor().CGColor));
+		CGContextFillPath(context);
+		CGContextStrokePath(context);
+		
+		var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return image
+	}
+	
+	// Updating
+	
+	func update() {
+		image = generateHUEImage(self.frame.size)
 	}
 	
 	// Drawing
@@ -47,23 +90,9 @@ class SwiftThicknessPicker: UIView {
 	override func drawRect(rect: CGRect) {
 		super.drawRect(rect)
 		
-		let radius = (direction == .Horizontal ? self.frame.size.height : self.frame.size.width)
-		let circleRect = (direction == .Horizontal ? CGRectMake(0, 0, radius, radius) : CGRectMake(0, 0, radius, radius))
-		
-		let context = UIGraphicsGetCurrentContext();
-		UIColor.yellowColor().set()
-		//CGContextAddEllipseInRect(context, circleRect);
-		
-		CGContextBeginPath(context);
-		CGContextMoveToPoint   (context, CGRectGetMaxX(rect), CGRectGetMinY(rect));  // top left
-		CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMidY(rect));  // mid right
-		CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));  // bottom left
-		CGContextClosePath(context);
-		
-		CGContextSetFillColor(context, CGColorGetComponents(UIColor.yellowColor().CGColor));
-		CGContextFillPath(context);
-		CGContextStrokePath(context);
-		
+		if image != nil {
+			image.drawInRect(rect)
+		}
 	}
 	
 }
