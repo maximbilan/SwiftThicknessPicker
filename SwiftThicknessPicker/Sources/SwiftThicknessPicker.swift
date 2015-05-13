@@ -71,11 +71,17 @@ class SwiftThicknessPicker: UIView {
 		UIColor.grayColor().set()
 		
 		CGContextBeginPath(context);
-		CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
-		CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMidY(rect));
-		CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+		if direction == .Horizontal {
+			CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
+			CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMidY(rect));
+			CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+		}
+		else {
+			CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+			CGContextAddLineToPoint(context, CGRectGetMidX(rect), CGRectGetMinY(rect));
+			CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMaxY(rect));
+		}
 		CGContextClosePath(context);
-		
 		CGContextSetFillColor(context, CGColorGetComponents(UIColor.grayColor().CGColor));
 		CGContextFillPath(context);
 		CGContextStrokePath(context);
