@@ -16,21 +16,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-xD-Ovi" customClass="SwiftThicknessPicker" customModule="SwiftThicknessPicker" customModuleProvider="target">
-                                <rect key="frame" x="210" y="285" width="180" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-xD-Ovi" userLabel="Horizontal Swift Thickness Picker" customClass="SwiftThicknessPicker" customModule="SwiftThicknessPicker" customModuleProvider="target">
+                                <rect key="frame" x="210" y="189" width="180" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GiF-fU-9OJ"/>
                                     <constraint firstAttribute="width" constant="180" id="JFm-Y3-ril"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3Q-Vf-MpU" userLabel="Vertical Swift Thickness Picker" customClass="SwiftThicknessPicker" customModule="SwiftThicknessPicker" customModuleProvider="target">
+                                <rect key="frame" x="285" y="267" width="30" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="3YM-bq-MoU"/>
+                                    <constraint firstAttribute="height" constant="180" id="LIb-aD-ddd"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSb-mT-pTw">
+                                <rect key="frame" x="295" y="106" width="10" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="aUv-xD-Ovi" secondAttribute="centerY" id="04x-pQ-gqS"/>
+                            <constraint firstAttribute="centerY" secondItem="aUv-xD-Ovi" secondAttribute="centerY" constant="96" id="04x-pQ-gqS"/>
+                            <constraint firstAttribute="centerY" secondItem="p3Q-Vf-MpU" secondAttribute="centerY" constant="-57" id="axY-b2-RKf"/>
+                            <constraint firstAttribute="centerX" secondItem="p3Q-Vf-MpU" secondAttribute="centerX" id="bpc-I9-mX3"/>
+                            <constraint firstAttribute="centerX" secondItem="hSb-mT-pTw" secondAttribute="centerX" id="cGi-JU-dEi"/>
                             <constraint firstAttribute="centerX" secondItem="aUv-xD-Ovi" secondAttribute="centerX" id="ciw-lT-zDX"/>
+                            <constraint firstAttribute="centerY" secondItem="hSb-mT-pTw" secondAttribute="centerY" constant="184" id="pHg-f0-fXc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="horizontalThicknessPicker" destination="aUv-xD-Ovi" id="FwP-88-Sej"/>
+                        <outlet property="testLabel" destination="hSb-mT-pTw" id="Ikk-4z-NJz"/>
+                        <outlet property="verticalThicknessPicker" destination="p3Q-Vf-MpU" id="pPG-5A-eAf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,11 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SwiftThicknessPickerDelegate {
 
+	@IBOutlet weak var horizontalThicknessPicker: SwiftThicknessPicker!
+	@IBOutlet weak var verticalThicknessPicker: SwiftThicknessPicker!
+	@IBOutlet weak var testLabel: UILabel!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
+		horizontalThicknessPicker.delegate = self
+		verticalThicknessPicker.delegate = self
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -20,6 +27,9 @@ class ViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
+	func valueChanged(value: Int) {
+		testLabel.text = "\(value)"
+	}
 
 }
 
