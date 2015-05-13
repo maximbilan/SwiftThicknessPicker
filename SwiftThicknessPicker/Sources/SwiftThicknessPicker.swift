@@ -110,10 +110,6 @@ class SwiftThicknessPicker: UIView {
 	override func drawRect(rect: CGRect) {
 		super.drawRect(rect)
 		
-		if image != nil {
-			image.drawInRect(rect)
-		}
-		
 		let radius = (direction == .Horizontal ? self.frame.size.height : self.frame.size.width)
 		let halfRadius = radius * 0.5
 		var circleX = currentSelectionX - halfRadius
@@ -133,6 +129,19 @@ class SwiftThicknessPicker: UIView {
 		
 		let circleRect = (direction == .Horizontal ? CGRectMake(circleX, 0, radius, radius) : CGRectMake(0, circleY, radius, radius))
 		let circleColor = labelBackgroundColor
+		var imageRect = rect
+		
+		if image != nil {
+			if direction == .Horizontal {
+				imageRect.size.width -= radius
+				imageRect.origin.x += halfRadius
+			}
+			else {
+				imageRect.size.height -= radius
+				imageRect.origin.y += halfRadius
+			}
+			image.drawInRect(imageRect)
+		}
 		
 		let context = UIGraphicsGetCurrentContext();
 		circleColor.set()
