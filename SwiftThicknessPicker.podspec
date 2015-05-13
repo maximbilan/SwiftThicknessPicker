@@ -8,6 +8,6 @@ s.license      = { :type => "MIT" }
 s.author       = { "Maxim Bilan" => "maximb.mail@gmail.com" }
 s.platform     = :ios, "8.0"
 s.source       = { :git => "https://github.com/maximbilan/SwiftThicknessPicker.git", :tag => "0.1" }
-s.source_files = "Classes", "SwiftHUEColorPicker/Sources/**/*.{swift}"
+s.source_files = "Classes", "SwiftThicknessPicker/Sources/**/*.{swift}"
 s.requires_arc = true
 end
