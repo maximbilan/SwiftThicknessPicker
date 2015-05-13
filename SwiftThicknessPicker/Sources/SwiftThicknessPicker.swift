@@ -25,6 +25,7 @@ class SwiftThicknessPicker: UIView {
 	
 	var delegate: SwiftThicknessPickerDelegate!
 	var direction: PickerDirection = .Horizontal
+	var value: Int = 0
 	
 	// Additional public properties
 	
@@ -87,6 +88,20 @@ class SwiftThicknessPicker: UIView {
 	// Updating
 	
 	func update() {
+		
+		let offset = (direction == .Horizontal ? self.frame.size.height : self.frame.size.width)
+		let halfOffset = offset * 0.5
+		var size = self.frame.size
+		if direction == .Horizontal {
+			size.width -= offset
+		}
+		else {
+			size.height -= offset
+		}
+		
+		currentSelectionX = CGFloat(value) * (self.frame.size.width - offset) + halfOffset
+		currentSelectionY = CGFloat(value) * (self.frame.size.height - offset) + halfOffset
+		
 		image = generateHUEImage(self.frame.size)
 	}
 	
@@ -133,8 +148,7 @@ class SwiftThicknessPicker: UIView {
 			NSParagraphStyleAttributeName: textParagraphStyle,
 			NSFontAttributeName: labelFont!]
 		
-		let textValue: Int = Int(20)
-		let text: NSString = "\(textValue)"
+		let text: NSString = "\(value)"
 		var textRect = circleRect
 		textRect.origin.y += (textRect.size.height - (labelFont?.lineHeight)!) * 0.5
 		text.drawInRect(textRect, withAttributes: attributes as [NSObject : AnyObject])
@@ -170,9 +184,28 @@ class SwiftThicknessPicker: UIView {
 		currentSelectionX = touchPoint.x
 		currentSelectionY = touchPoint.y
 		
+		let offset = (direction == .Horizontal ? self.frame.size.height : self.frame.size.width)
+		let halfOffset = offset * 0.5
+		if currentSelectionX < halfOffset {
+			currentSelectionX = halfOffset
+		}
+		else if currentSelectionX >= self.frame.size.width - halfOffset {
+			currentSelectionX = self.frame.size.width - halfOffset
+		}
+		if currentSelectionY < halfOffset {
+			currentSelectionY = halfOffset
+		}
+		else if currentSelectionY >= self.frame.size.height - halfOffset {
+			currentSelectionY = self.frame.size.height - halfOffset
+		}
+		
+		let percent = (direction == .Horizontal ? CGFloat((currentSelectionX - halfOffset) / (self.frame.size.width - offset))
+			: CGFloat((currentSelectionY - halfOffset) / (self.frame.size.height - offset)))
+		value = Int(percent * 20)
+		
 		if delegate != nil {
 			// to do
-			delegate.valueChanged(0)
+			delegate.valueChanged(value)
 		}
 		setNeedsDisplay()
 	}
