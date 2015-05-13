@@ -26,13 +26,14 @@ class SwiftThicknessPicker: UIView {
 	var delegate: SwiftThicknessPickerDelegate!
 	var direction: PickerDirection = .Horizontal
 	var value: Int = 0
+	var maxValue: Int = 20
 	
 	// Additional public properties
 	
 	var labelFontColor: UIColor = UIColor.whiteColor()
 	var labelBackgroundColor: UIColor = UIColor.blackColor()
 	var labelFont = UIFont(name: "Helvetica Neue", size: 12)
-	var cornerRadius: CGFloat = 20.0
+	var cornerRadius: CGFloat = 30.0
 	
 	// Private properties
 	
@@ -216,12 +217,12 @@ class SwiftThicknessPicker: UIView {
 		
 		let percent = (direction == .Horizontal ? CGFloat((currentSelectionX - halfOffset) / (self.frame.size.width - offset))
 			: CGFloat((currentSelectionY - halfOffset) / (self.frame.size.height - offset)))
-		value = Int(percent * 20)
+		value = Int(percent * CGFloat(maxValue))
 		
 		if delegate != nil {
-			// to do
 			delegate.valueChanged(value)
 		}
+		
 		setNeedsDisplay()
 	}
 	
