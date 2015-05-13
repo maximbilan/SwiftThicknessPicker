@@ -19,7 +19,10 @@ class ViewController: UIViewController, SwiftThicknessPickerDelegate {
 		// Do any additional setup after loading the view, typically from a nib.
 		
 		horizontalThicknessPicker.delegate = self
+		horizontalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.Horizontal
+		
 		verticalThicknessPicker.delegate = self
+		verticalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.Vertical
 	}
 
 	override func didReceiveMemoryWarning() {
