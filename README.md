@@ -16,7 +16,7 @@ pod 'SwiftThicknessPicker'
 
 <b>How to use:</b>
 
-You can create from Storyboard or XIB. Or create manually:
+You can create from <i>Storyboard</i> or <i>XIB</i>. Or create manually:
 <pre>
 let picker = SwiftThicknessPicker()
 </pre>
