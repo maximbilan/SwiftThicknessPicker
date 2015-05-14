@@ -25,7 +25,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3Q-Vf-MpU" userLabel="Vertical Swift Thickness Picker" customClass="SwiftThicknessPicker" customModule="SwiftThicknessPicker" customModuleProvider="target">
-                                <rect key="frame" x="285" y="267" width="30" height="180"/>
+                                <rect key="frame" x="285" y="245" width="30" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="3YM-bq-MoU"/>
@@ -35,14 +35,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSb-mT-pTw">
                                 <rect key="frame" x="295" y="106" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="aUv-xD-Ovi" secondAttribute="centerY" constant="96" id="04x-pQ-gqS"/>
-                            <constraint firstAttribute="centerY" secondItem="p3Q-Vf-MpU" secondAttribute="centerY" constant="-57" id="axY-b2-RKf"/>
+                            <constraint firstAttribute="centerY" secondItem="p3Q-Vf-MpU" secondAttribute="centerY" constant="-35" id="axY-b2-RKf"/>
                             <constraint firstAttribute="centerX" secondItem="p3Q-Vf-MpU" secondAttribute="centerX" id="bpc-I9-mX3"/>
                             <constraint firstAttribute="centerX" secondItem="hSb-mT-pTw" secondAttribute="centerX" id="cGi-JU-dEi"/>
                             <constraint firstAttribute="centerX" secondItem="aUv-xD-Ovi" secondAttribute="centerX" id="ciw-lT-zDX"/>
