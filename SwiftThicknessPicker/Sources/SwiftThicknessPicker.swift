@@ -25,7 +25,15 @@ class SwiftThicknessPicker: UIView {
 	
 	var delegate: SwiftThicknessPickerDelegate!
 	var direction: PickerDirection = .Horizontal
-	var value: Int = 0
+	var currentValue: Int {
+		get {
+			return value
+		}
+		set(newValue) {
+			self.value = newValue
+			setNeedsDisplay()
+		}
+	}
 	var maxValue: Int = 20
 	
 	// Additional public properties
@@ -37,6 +45,7 @@ class SwiftThicknessPicker: UIView {
 	
 	// Private properties
 	
+	private var value: Int = 0
 	private var image: UIImage!
 	private var currentSelectionY: CGFloat = 0.0
 	private var currentSelectionX: CGFloat = 0.0
