@@ -33,3 +33,15 @@ Direction:
 picker.direction = SwiftThicknessPicker.PickerDirection.Vertical // Vertical, Horizontal
 </pre>
 
+Also you can setup current value and change maximum value, for example:
+<pre>
+picker.value = 0
+picker.maxValue = 30
+</pre>
+And other settings:
+<pre>
+labelFontColor // Font color of the moving label
+labelBackgroundColor // Background color of the moving label
+labelFont // Font of the moving label
+cornerRadius // Corner radius
+</pre>
