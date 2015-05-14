@@ -20,7 +20,7 @@ You can create from Storyboard or XIB. Or create manually:
 <pre>
 let picker = SwiftThicknessPicker()
 </pre>
-For handling changing of values you should implement protocol SwiftThicknessPickerDelegate:
+For handling changing of values you should implement protocol <i>SwiftThicknessPickerDelegate</i>:
 <pre>
 picker.delegate = self
 
