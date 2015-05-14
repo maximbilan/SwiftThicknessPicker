@@ -34,5 +34,10 @@ class ViewController: UIViewController, SwiftThicknessPickerDelegate {
 		testLabel.text = "\(value)"
 	}
 
+	@IBAction func testButtonAction(sender: UIButton) {
+		horizontalThicknessPicker.currentValue = 11
+		verticalThicknessPicker.currentValue = 20
+	}
+	
 }
 

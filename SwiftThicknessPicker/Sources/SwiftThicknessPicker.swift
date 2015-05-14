@@ -30,7 +30,16 @@ class SwiftThicknessPicker: UIView {
 			return value
 		}
 		set(newValue) {
-			self.value = newValue
+			if newValue >= maxValue {
+				self.value = maxValue
+			}
+			else if newValue <= 0 {
+				self.value = 0
+			}
+			else {
+				self.value = newValue
+			}
+			update()
 			setNeedsDisplay()
 		}
 	}
@@ -115,8 +124,8 @@ class SwiftThicknessPicker: UIView {
 			size.height -= offset
 		}
 		
-		currentSelectionX = CGFloat(value) * (self.frame.size.width - offset) + halfOffset
-		currentSelectionY = CGFloat(value) * (self.frame.size.height - offset) + halfOffset
+		currentSelectionX = ((CGFloat(value) * (size.width)) / CGFloat(maxValue)) + halfOffset
+		currentSelectionY = ((CGFloat(value) * (size.height)) / CGFloat(maxValue)) + halfOffset
 		
 		image = generateHUEImage(self.frame.size)
 	}

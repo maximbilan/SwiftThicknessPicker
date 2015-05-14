@@ -38,11 +38,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J15-dx-z1I">
+                                <rect key="frame" x="263" y="466" width="75" height="30"/>
+                                <state key="normal" title="test button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CcR-Uc-w7R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="aUv-xD-Ovi" secondAttribute="centerY" constant="96" id="04x-pQ-gqS"/>
+                            <constraint firstAttribute="centerY" secondItem="J15-dx-z1I" secondAttribute="centerY" constant="-181" id="Rdo-6w-QSA"/>
                             <constraint firstAttribute="centerY" secondItem="p3Q-Vf-MpU" secondAttribute="centerY" constant="-35" id="axY-b2-RKf"/>
+                            <constraint firstAttribute="centerX" secondItem="J15-dx-z1I" secondAttribute="centerX" constant="-0.5" id="bGJ-8M-BIK"/>
                             <constraint firstAttribute="centerX" secondItem="p3Q-Vf-MpU" secondAttribute="centerX" id="bpc-I9-mX3"/>
                             <constraint firstAttribute="centerX" secondItem="hSb-mT-pTw" secondAttribute="centerX" id="cGi-JU-dEi"/>
                             <constraint firstAttribute="centerX" secondItem="aUv-xD-Ovi" secondAttribute="centerX" id="ciw-lT-zDX"/>
