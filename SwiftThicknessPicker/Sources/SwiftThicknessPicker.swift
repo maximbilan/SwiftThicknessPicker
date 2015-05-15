@@ -95,17 +95,18 @@ class SwiftThicknessPicker: UIView {
 		barColor.set()
 		
 		let offset = (direction == .Horizontal ? size.height * 0.15 : size.width * 0.15)
+		let doubleOffset = offset * 2
 		
 		CGContextBeginPath(context);
 		if direction == .Horizontal {
-			CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect) + offset);
-			CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMidY(rect));
-			CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect) - offset);
+			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMinY(rect) + offset);
+			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + doubleOffset, CGRectGetMidY(rect));
+			CGContextAddLineToPoint(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMaxY(rect) - offset);
 		}
 		else {
-			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - offset, CGRectGetMaxY(rect));
-			CGContextAddLineToPoint(context, CGRectGetMidX(rect), CGRectGetMinY(rect));
-			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + offset, CGRectGetMaxY(rect));
+			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - offset, CGRectGetMaxY(rect) - doubleOffset);
+			CGContextAddLineToPoint(context, CGRectGetMidX(rect), CGRectGetMinY(rect) + doubleOffset);
+			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + offset, CGRectGetMaxY(rect) - doubleOffset);
 		}
 		CGContextClosePath(context);
 		CGContextSetFillColor(context, CGColorGetComponents(barColor.CGColor));
