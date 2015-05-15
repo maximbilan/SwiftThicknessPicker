@@ -94,16 +94,18 @@ class SwiftThicknessPicker: UIView {
 		let context = UIGraphicsGetCurrentContext();
 		barColor.set()
 		
+		let offset = (direction == .Horizontal ? size.height * 0.15 : size.width * 0.15)
+		
 		CGContextBeginPath(context);
 		if direction == .Horizontal {
-			CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
+			CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect) + offset);
 			CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMidY(rect));
-			CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+			CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect) - offset);
 		}
 		else {
-			CGContextMoveToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - offset, CGRectGetMaxY(rect));
 			CGContextAddLineToPoint(context, CGRectGetMidX(rect), CGRectGetMinY(rect));
-			CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMaxY(rect));
+			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + offset, CGRectGetMaxY(rect));
 		}
 		CGContextClosePath(context);
 		CGContextSetFillColor(context, CGColorGetComponents(barColor.CGColor));
