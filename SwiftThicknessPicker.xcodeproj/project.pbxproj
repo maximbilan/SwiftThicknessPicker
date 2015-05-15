@@ -82,9 +82,9 @@
 				6D7EB87A1B01E3C8001D08D3 /* SwiftThicknessPicker.swift */,
 				6D7EB85A1B01E34B001D08D3 /* AppDelegate.swift */,
 				6D7EB85C1B01E34B001D08D3 /* ViewController.swift */,
+				6D7EB8631B01E34B001D08D3 /* LaunchScreen.xib */,
 				6D7EB85E1B01E34B001D08D3 /* Main.storyboard */,
 				6D7EB8611B01E34B001D08D3 /* Images.xcassets */,
-				6D7EB8631B01E34B001D08D3 /* LaunchScreen.xib */,
 				6D7EB8581B01E34B001D08D3 /* Supporting Files */,
 			);
 			path = SwiftThicknessPicker;
