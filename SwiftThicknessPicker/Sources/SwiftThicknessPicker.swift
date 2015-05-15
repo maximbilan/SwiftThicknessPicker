@@ -51,6 +51,7 @@ class SwiftThicknessPicker: UIView {
 	var labelBackgroundColor: UIColor = UIColor.blackColor()
 	var labelFont = UIFont(name: "Helvetica Neue", size: 12)
 	var bgColor: UIColor = UIColor.whiteColor()
+	var barColor: UIColor = UIColor.grayColor()
 	var cornerRadius: CGFloat = 30.0
 	
 	// Private properties
@@ -91,7 +92,7 @@ class SwiftThicknessPicker: UIView {
 		UIRectFill(rect)
 		
 		let context = UIGraphicsGetCurrentContext();
-		UIColor.grayColor().set()
+		barColor.set()
 		
 		CGContextBeginPath(context);
 		if direction == .Horizontal {
@@ -105,7 +106,7 @@ class SwiftThicknessPicker: UIView {
 			CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMaxY(rect));
 		}
 		CGContextClosePath(context);
-		CGContextSetFillColor(context, CGColorGetComponents(UIColor.grayColor().CGColor));
+		CGContextSetFillColor(context, CGColorGetComponents(barColor.CGColor));
 		CGContextFillPath(context);
 		CGContextStrokePath(context);
 		
