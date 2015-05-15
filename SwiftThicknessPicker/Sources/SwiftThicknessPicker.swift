@@ -50,6 +50,7 @@ class SwiftThicknessPicker: UIView {
 	var labelFontColor: UIColor = UIColor.whiteColor()
 	var labelBackgroundColor: UIColor = UIColor.blackColor()
 	var labelFont = UIFont(name: "Helvetica Neue", size: 12)
+	var bgColor: UIColor = UIColor.whiteColor()
 	var cornerRadius: CGFloat = 30.0
 	
 	// Private properties
@@ -85,6 +86,9 @@ class SwiftThicknessPicker: UIView {
 		UIGraphicsBeginImageContextWithOptions(size, false, 0)
 		
 		UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
+		
+		bgColor.set()
+		UIRectFill(rect)
 		
 		let context = UIGraphicsGetCurrentContext();
 		UIColor.grayColor().set()
