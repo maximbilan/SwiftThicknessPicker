@@ -43,5 +43,4 @@ And other settings:
 labelFontColor // Font color of the moving label
 labelBackgroundColor // Background color of the moving label
 labelFont // Font of the moving label
-cornerRadius // Corner radius
 </pre>
