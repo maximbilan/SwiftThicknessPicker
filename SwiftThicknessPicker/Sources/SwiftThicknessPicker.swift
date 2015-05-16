@@ -86,8 +86,6 @@ class SwiftThicknessPicker: UIView {
 		var rect = CGRectMake(0, 0, size.width, size.height)
 		UIGraphicsBeginImageContextWithOptions(size, false, 0)
 		
-		UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
-		
 		bgColor.set()
 		UIRectFill(rect)
 		
@@ -102,11 +100,13 @@ class SwiftThicknessPicker: UIView {
 			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMinY(rect) + offset);
 			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + doubleOffset, CGRectGetMidY(rect));
 			CGContextAddLineToPoint(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMaxY(rect) - offset);
+			CGContextAddArc(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMidY(rect), size.height * 0.33, CGFloat(M_PI_2), CGFloat(M_PI), 1)
 		}
 		else {
 			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - offset, CGRectGetMaxY(rect) - doubleOffset);
 			CGContextAddLineToPoint(context, CGRectGetMidX(rect), CGRectGetMinY(rect) + doubleOffset);
 			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + offset, CGRectGetMaxY(rect) - doubleOffset);
+			CGContextAddArc(context, CGRectGetMidX(rect), CGRectGetMaxY(rect) - doubleOffset, size.width * 0.33, CGFloat(M_PI), CGFloat(M_PI + M_PI_2), 1)
 		}
 		CGContextClosePath(context);
 		CGContextSetFillColor(context, CGColorGetComponents(barColor.CGColor));
