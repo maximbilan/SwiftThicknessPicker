@@ -52,7 +52,6 @@ class SwiftThicknessPicker: UIView {
 	var labelFont = UIFont(name: "Helvetica Neue", size: 12)
 	var bgColor: UIColor = UIColor.whiteColor()
 	var barColor: UIColor = UIColor.grayColor()
-	var cornerRadius: CGFloat = 30.0
 	
 	// Private properties
 	
