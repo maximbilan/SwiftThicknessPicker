@@ -51,6 +51,7 @@ class SwiftThicknessPicker: UIView {
 	var labelBackgroundColor: UIColor = UIColor.blackColor()
 	var labelFont = UIFont(name: "Helvetica Neue", size: 12)
 	var bgColor: UIColor = UIColor.whiteColor()
+	var bgCornerRadius: CGFloat = 30
 	var barColor: UIColor = UIColor.grayColor()
 	
 	// Private properties
@@ -85,13 +86,15 @@ class SwiftThicknessPicker: UIView {
 		var rect = CGRectMake(0, 0, size.width, size.height)
 		UIGraphicsBeginImageContextWithOptions(size, false, 0)
 		
+		UIBezierPath(roundedRect: rect, cornerRadius: bgCornerRadius).addClip()
+		
 		bgColor.set()
 		UIRectFill(rect)
 		
 		let context = UIGraphicsGetCurrentContext();
 		barColor.set()
 		
-		let offset = (direction == .Horizontal ? size.height * 0.15 : size.width * 0.15)
+		let offset = (direction == .Horizontal ? size.height * 0.25 : size.width * 0.25)
 		let doubleOffset = offset * 2
 		
 		CGContextBeginPath(context);
@@ -99,13 +102,13 @@ class SwiftThicknessPicker: UIView {
 			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMinY(rect) + offset);
 			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + doubleOffset, CGRectGetMidY(rect));
 			CGContextAddLineToPoint(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMaxY(rect) - offset);
-			CGContextAddArc(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMidY(rect), size.height * 0.33, CGFloat(M_PI_2), CGFloat(M_PI), 1)
+			CGContextAddArc(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMidY(rect), size.height * 0.25, CGFloat(M_PI_2), CGFloat(M_PI), 1)
 		}
 		else {
 			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - offset, CGRectGetMaxY(rect) - doubleOffset);
 			CGContextAddLineToPoint(context, CGRectGetMidX(rect), CGRectGetMinY(rect) + doubleOffset);
 			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + offset, CGRectGetMaxY(rect) - doubleOffset);
-			CGContextAddArc(context, CGRectGetMidX(rect), CGRectGetMaxY(rect) - doubleOffset, size.width * 0.33, CGFloat(M_PI), CGFloat(M_PI + M_PI_2), 1)
+			CGContextAddArc(context, CGRectGetMidX(rect), CGRectGetMaxY(rect) - doubleOffset, size.width * 0.25, CGFloat(M_PI), CGFloat(M_PI + M_PI_2), 1)
 		}
 		CGContextClosePath(context);
 		CGContextSetFillColor(context, CGColorGetComponents(barColor.CGColor));
