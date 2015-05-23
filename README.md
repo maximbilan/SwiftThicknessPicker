@@ -33,10 +33,11 @@ Direction:
 picker.direction = SwiftThicknessPicker.PickerDirection.Vertical // Vertical, Horizontal
 </pre>
 
-Also you can change current value or maximum value, for example:
+Also you can change current value, maximum value or minimum value, for example:
 <pre>
 picker.currentValue = 0
 picker.maxValue = 30
+picker.minValue = 1
 </pre>
 And other settings:
 <pre>
