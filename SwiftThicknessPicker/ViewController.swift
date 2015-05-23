@@ -19,6 +19,9 @@ class ViewController: UIViewController, SwiftThicknessPickerDelegate {
 		
 		horizontalThicknessPicker.delegate = self
 		horizontalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.Horizontal
+		horizontalThicknessPicker.minValue = 1
+		horizontalThicknessPicker.maxValue = 20
+		horizontalThicknessPicker.currentValue = 17
 		
 		verticalThicknessPicker.delegate = self
 		verticalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.Vertical

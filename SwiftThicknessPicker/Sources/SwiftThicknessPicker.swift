@@ -33,8 +33,8 @@ class SwiftThicknessPicker: UIView {
 			if newValue >= maxValue {
 				self.value = maxValue
 			}
-			else if newValue <= 0 {
-				self.value = 0
+			else if newValue <= minValue {
+				self.value = minValue
 			}
 			else {
 				self.value = newValue
@@ -43,6 +43,7 @@ class SwiftThicknessPicker: UIView {
 			setNeedsDisplay()
 		}
 	}
+	var minValue: Int = 0
 	var maxValue: Int = 20
 	
 	// MARK: Additional public properties
@@ -65,12 +66,16 @@ class SwiftThicknessPicker: UIView {
 	
 	required init(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
+		
 		self.backgroundColor = UIColor.clearColor()
+		value = minValue
 	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		
 		self.backgroundColor = UIColor.clearColor()
+		value = minValue
 	}
 	
 	override func layoutSubviews() {
@@ -134,8 +139,8 @@ class SwiftThicknessPicker: UIView {
 			size.height -= offset
 		}
 		
-		currentSelectionX = ((CGFloat(value) * (size.width)) / CGFloat(maxValue)) + halfOffset
-		currentSelectionY = ((CGFloat(value) * (size.height)) / CGFloat(maxValue)) + halfOffset
+		currentSelectionX = ((CGFloat(value - minValue) * (size.width)) / CGFloat(maxValue - minValue)) + halfOffset
+		currentSelectionY = ((CGFloat(value - minValue) * (size.height)) / CGFloat(maxValue - minValue)) + halfOffset
 		
 		image = generateHUEImage(self.frame.size)
 	}
@@ -245,7 +250,7 @@ class SwiftThicknessPicker: UIView {
 		
 		let percent = (direction == .Horizontal ? CGFloat((currentSelectionX - halfOffset) / (self.frame.size.width - offset))
 			: CGFloat((currentSelectionY - halfOffset) / (self.frame.size.height - offset)))
-		value = Int(percent * CGFloat(maxValue))
+		value = minValue + Int(percent * CGFloat(maxValue - minValue))
 		
 		if delegate != nil {
 			delegate.valueChanged(value)
