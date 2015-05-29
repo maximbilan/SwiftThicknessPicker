@@ -1,5 +1,9 @@
 <h4>Swift Thickness Picker</h4>
 
+[![Version](https://img.shields.io/cocoapods/v/SwiftThicknessPicker.svg?style=flat)](http://cocoadocs.org/docsets/SwiftThicknessPicker)
+[![License](https://img.shields.io/cocoapods/l/SwiftThicknessPicker.svg?style=flat)](http://cocoadocs.org/docsets/SwiftThicknessPicker)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftThicknessPicker.svg?style=flat)](http://cocoadocs.org/docsets/SwiftThicknessPicker)
+
 Simple iOS thickness picker. Supports two modes: vertical and horizontal. 
 
 ![alt tag](https://raw.github.com/maximbilan/SwiftThicknessPicker/master/img/img1.png)
@@ -45,3 +49,5 @@ labelFontColor // Font color of the moving label
 labelBackgroundColor // Background color of the moving label
 labelFont // Font of the moving label
 </pre>
+
+
