@@ -20,7 +20,7 @@ Copy SwiftThicknessPicker.swift to your project.
 pod 'SwiftThicknessPicker'
 </pre>
 
-## How to use:
+## How to use
 
 You can create from <i>Storyboard</i> or <i>XIB</i>. Or create manually:
 <pre>
