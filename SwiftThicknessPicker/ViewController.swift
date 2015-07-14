@@ -27,13 +27,13 @@ class ViewController: UIViewController, SwiftThicknessPickerDelegate {
 		verticalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.Vertical
 	}
 
-	// SwiftThicknessPickerDelegate
+	// MARK: - SwiftThicknessPickerDelegate
 	
 	func valueChanged(value: Int) {
 		testLabel.text = "\(value)"
 	}
 
-	// Actions
+	// MARK: - Actions
 	
 	@IBAction func testButtonAction(sender: UIButton) {
 		horizontalThicknessPicker.currentValue = 11

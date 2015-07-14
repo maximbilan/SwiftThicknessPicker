@@ -14,14 +14,14 @@ protocol SwiftThicknessPickerDelegate {
 
 class SwiftThicknessPicker: UIView {
 
-	// MARK: Direction
+	// MARK: - Direction
 	
 	enum PickerDirection: Int {
 		case Horizontal
 		case Vertical
 	}
 	
-	// MARK: Public properties
+	// MARK: - Public properties
 	
 	var delegate: SwiftThicknessPickerDelegate!
 	var direction: PickerDirection = .Horizontal
@@ -46,7 +46,7 @@ class SwiftThicknessPicker: UIView {
 	var minValue: Int = 0
 	var maxValue: Int = 20
 	
-	// MARK: Additional public properties
+	// MARK: - Additional public properties
 	
 	var labelFontColor: UIColor = UIColor.whiteColor()
 	var labelBackgroundColor: UIColor = UIColor.blackColor()
@@ -55,14 +55,14 @@ class SwiftThicknessPicker: UIView {
 	var bgCornerRadius: CGFloat = 30
 	var barColor: UIColor = UIColor.grayColor()
 	
-	// MARK: Private properties
+	// MARK: - Private properties
 	
 	private var value: Int = 0
 	private var image: UIImage!
 	private var currentSelectionY: CGFloat = 0.0
 	private var currentSelectionX: CGFloat = 0.0
 	
-	// MARK: Initialization
+	// MARK: - Initialization
 	
 	required init(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -84,7 +84,7 @@ class SwiftThicknessPicker: UIView {
 		update()
 	}
 	
-	// MARK: Prerendering
+	// MARK: - Prerendering
 	
 	func generateHUEImage(size: CGSize) -> UIImage {
 		
@@ -125,7 +125,7 @@ class SwiftThicknessPicker: UIView {
 		return image
 	}
 	
-	// MARK: Updating
+	// MARK: - Updating
 	
 	func update() {
 		
@@ -145,7 +145,7 @@ class SwiftThicknessPicker: UIView {
 		image = generateHUEImage(self.frame.size)
 	}
 	
-	// MARK: Drawing
+	// MARK: - Drawing
 	
 	override func drawRect(rect: CGRect) {
 		super.drawRect(rect)
@@ -203,7 +203,7 @@ class SwiftThicknessPicker: UIView {
 		text.drawInRect(textRect, withAttributes: attributes as [NSObject : AnyObject])
 	}
 	
-	// MARK: Touch events
+	// MARK: - Touch events
 	
 	override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
 		let touch: AnyObject? = touches.first
@@ -227,7 +227,7 @@ class SwiftThicknessPicker: UIView {
 		
 	}
 	
-	// MARK: Touch handling
+	// MARK: - Touch handling
 	
 	func handleTouch(touchPoint: CGPoint) {
 		currentSelectionX = touchPoint.x
