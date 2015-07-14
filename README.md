@@ -1,4 +1,4 @@
-<h4>Swift Thickness Picker</h4>
+## Swift Thickness Picker
 
 [![Version](https://img.shields.io/cocoapods/v/SwiftThicknessPicker.svg?style=flat)](http://cocoadocs.org/docsets/SwiftThicknessPicker)
 [![License](https://img.shields.io/cocoapods/l/SwiftThicknessPicker.svg?style=flat)](http://cocoadocs.org/docsets/SwiftThicknessPicker)
@@ -7,6 +7,8 @@
 Simple iOS thickness picker. Supports two modes: vertical and horizontal. 
 
 ![alt tag](https://raw.github.com/maximbilan/SwiftThicknessPicker/master/img/img1.png)
+
+## Installation
 
 <b>Manual installation:</b>
 <pre>
@@ -18,7 +20,7 @@ Copy SwiftThicknessPicker.swift to your project.
 pod 'SwiftThicknessPicker'
 </pre>
 
-<b>How to use:</b>
+## How to use
 
 You can create from <i>Storyboard</i> or <i>XIB</i>. Or create manually:
 <pre>
