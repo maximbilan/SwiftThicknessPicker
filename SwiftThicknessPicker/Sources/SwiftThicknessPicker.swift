@@ -8,24 +8,24 @@
 
 import UIKit
 
-protocol SwiftThicknessPickerDelegate {
-	func valueChanged(value: Int)
+public protocol SwiftThicknessPickerDelegate {
+	 func valueChanged(value: Int)
 }
 
-class SwiftThicknessPicker: UIView {
+public class SwiftThicknessPicker: UIView {
 
 	// MARK: - Direction
 	
-	enum PickerDirection: Int {
+	public enum PickerDirection: Int {
 		case Horizontal
 		case Vertical
 	}
 	
 	// MARK: - Public properties
 	
-	var delegate: SwiftThicknessPickerDelegate!
-	var direction: PickerDirection = .Horizontal
-	var currentValue: Int {
+	public var delegate: SwiftThicknessPickerDelegate!
+	public var direction: PickerDirection = .Horizontal
+	public var currentValue: Int {
 		get {
 			return value
 		}
@@ -43,17 +43,17 @@ class SwiftThicknessPicker: UIView {
 			setNeedsDisplay()
 		}
 	}
-	var minValue: Int = 0
-	var maxValue: Int = 20
+	public var minValue: Int = 0
+	public var maxValue: Int = 20
 	
 	// MARK: - Additional public properties
 	
-	var labelFontColor: UIColor = UIColor.whiteColor()
-	var labelBackgroundColor: UIColor = UIColor.blackColor()
-	var labelFont = UIFont(name: "Helvetica Neue", size: 12)
-	var bgColor: UIColor = UIColor.whiteColor()
-	var bgCornerRadius: CGFloat = 30
-	var barColor: UIColor = UIColor.grayColor()
+	public var labelFontColor: UIColor = UIColor.whiteColor()
+	public var labelBackgroundColor: UIColor = UIColor.blackColor()
+	public var labelFont = UIFont(name: "Helvetica Neue", size: 12)
+	public var bgColor: UIColor = UIColor.whiteColor()
+	public var bgCornerRadius: CGFloat = 30
+	public var barColor: UIColor = UIColor.grayColor()
 	
 	// MARK: - Private properties
 	
@@ -64,21 +64,21 @@ class SwiftThicknessPicker: UIView {
 	
 	// MARK: - Initialization
 	
-	required init(coder aDecoder: NSCoder) {
+	required public init(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		
 		self.backgroundColor = UIColor.clearColor()
 		value = minValue
 	}
 	
-	override init(frame: CGRect) {
+	override public init(frame: CGRect) {
 		super.init(frame: frame)
 		
 		self.backgroundColor = UIColor.clearColor()
 		value = minValue
 	}
 	
-	override func layoutSubviews() {
+	override public func layoutSubviews() {
 		super.layoutSubviews()
 		
 		update()
@@ -147,7 +147,7 @@ class SwiftThicknessPicker: UIView {
 	
 	// MARK: - Drawing
 	
-	override func drawRect(rect: CGRect) {
+	override public func drawRect(rect: CGRect) {
 		super.drawRect(rect)
 		
 		let radius = (direction == .Horizontal ? self.frame.size.height : self.frame.size.width)
@@ -205,25 +205,25 @@ class SwiftThicknessPicker: UIView {
 	
 	// MARK: - Touch events
 	
-	override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+	override public func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
 		let touch: AnyObject? = touches.first
 		let point = touch!.locationInView(self)
 		handleTouch(point)
 	}
 	
-	override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+	override public func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
 		let touch: AnyObject? = touches.first
 		let point = touch!.locationInView(self)
 		handleTouch(point)
 	}
 	
-	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+	override public func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
 		let touch: AnyObject? = touches.first
 		let point = touch!.locationInView(self)
 		handleTouch(point)
 	}
 	
-	override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
+	override public func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
 		
 	}
 	
