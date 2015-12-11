@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol SwiftThicknessPickerDelegate {
+public protocol SwiftThicknessPickerDelegate : class {
 	 func valueChanged(value: Int)
 }
 
@@ -23,7 +23,7 @@ public class SwiftThicknessPicker: UIView {
 	
 	// MARK: - Public properties
 	
-	public var delegate: SwiftThicknessPickerDelegate!
+	public weak var delegate: SwiftThicknessPickerDelegate!
 	public var direction: PickerDirection = .Horizontal
 	public var currentValue: Int {
 		get {
