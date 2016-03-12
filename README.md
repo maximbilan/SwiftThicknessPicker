@@ -15,7 +15,7 @@ Simple iOS thickness picker. Supports two modes: vertical and horizontal.
 pod 'SwiftThicknessPicker'
 </pre>
 
-<b>Manual installation:</b>
+<b>Manual:</b>
 <pre>
 Copy SwiftThicknessPicker.swift to your project.
 </pre>
