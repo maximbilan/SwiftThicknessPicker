@@ -17,7 +17,7 @@ pod 'SwiftThicknessPicker'
 
 <b>Manual:</b>
 <pre>
-Copy SwiftThicknessPicker.swift to your project.
+Copy <i>SwiftThicknessPicker.swift</i> to your project.
 </pre>
 
 ## Using
