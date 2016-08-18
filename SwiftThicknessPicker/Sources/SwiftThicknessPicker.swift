@@ -48,12 +48,12 @@ public class SwiftThicknessPicker: UIView {
 	
 	// MARK: - Additional public properties
 	
-	public var labelFontColor: UIColor = UIColor.whiteColor()
-	public var labelBackgroundColor: UIColor = UIColor.blackColor()
+	public var labelFontColor: UIColor = UIColor.white
+	public var labelBackgroundColor: UIColor = UIColor.black
 	public var labelFont = UIFont(name: "Helvetica Neue", size: 12)
-	public var bgColor: UIColor = UIColor.whiteColor()
+	public var bgColor: UIColor = UIColor.white
 	public var bgCornerRadius: CGFloat = 30
-	public var barColor: UIColor = UIColor.grayColor()
+	public var barColor: UIColor = UIColor.gray
 	
 	// MARK: - Private properties
 	
@@ -67,14 +67,14 @@ public class SwiftThicknessPicker: UIView {
 	required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		
-		self.backgroundColor = UIColor.clearColor()
+		self.backgroundColor = UIColor.clear
 		value = minValue
 	}
 	
 	override public init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		self.backgroundColor = UIColor.clearColor()
+		self.backgroundColor = UIColor.clear
 		value = minValue
 	}
 	
@@ -88,7 +88,7 @@ public class SwiftThicknessPicker: UIView {
 	
 	func generateHUEImage(size: CGSize) -> UIImage {
 		
-		let rect = CGRectMake(0, 0, size.width, size.height)
+		let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 		UIGraphicsBeginImageContextWithOptions(size, false, 0)
 		
 		UIBezierPath(roundedRect: rect, cornerRadius: bgCornerRadius).addClip()
@@ -102,25 +102,25 @@ public class SwiftThicknessPicker: UIView {
 		let offset = (direction == .Horizontal ? size.height * 0.25 : size.width * 0.25)
 		let doubleOffset = offset * 2
 		
-		CGContextBeginPath(context);
+		context!.beginPath()
 		if direction == .Horizontal {
-			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMinY(rect) + offset);
-			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + doubleOffset, CGRectGetMidY(rect));
-			CGContextAddLineToPoint(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMaxY(rect) - offset);
-			CGContextAddArc(context, CGRectGetMaxX(rect) - doubleOffset, CGRectGetMidY(rect), size.height * 0.25, CGFloat(M_PI_2), CGFloat(M_PI), 1)
+			context!.moveTo(x: rect.maxX - doubleOffset, y: rect.minY + offset);
+			context!.addLineTo(x: rect.minX + doubleOffset, y: rect.midY);
+			context!.addLineTo(x: rect.maxX - doubleOffset, y: rect.maxY - offset);
+			context!.addArc(centerX: rect.maxX - doubleOffset, y: rect.midY, radius: size.height * 0.25, startAngle: CGFloat(M_PI_2), endAngle: CGFloat(M_PI), clockwise: 1)
 		}
 		else {
-			CGContextMoveToPoint(context, CGRectGetMaxX(rect) - offset, CGRectGetMaxY(rect) - doubleOffset);
-			CGContextAddLineToPoint(context, CGRectGetMidX(rect), CGRectGetMinY(rect) + doubleOffset);
-			CGContextAddLineToPoint(context, CGRectGetMinX(rect) + offset, CGRectGetMaxY(rect) - doubleOffset);
-			CGContextAddArc(context, CGRectGetMidX(rect), CGRectGetMaxY(rect) - doubleOffset, size.width * 0.25, CGFloat(M_PI), CGFloat(M_PI + M_PI_2), 1)
+			context!.moveTo(x: rect.maxX - offset, y: rect.maxY - doubleOffset);
+			context!.addLineTo(x: rect.midX, y: rect.minY + doubleOffset);
+			context!.addLineTo(x: rect.minX + offset, y: rect.maxY - doubleOffset);
+			context!.addArc(centerX: rect.midX, y: rect.maxY - doubleOffset, radius: size.width * 0.25, startAngle: CGFloat(M_PI), endAngle: CGFloat(M_PI + M_PI_2), clockwise: 1)
 		}
-		CGContextClosePath(context);
-		CGContextSetFillColor(context, CGColorGetComponents(barColor.CGColor));
-		CGContextFillPath(context);
-		CGContextStrokePath(context);
+		context!.closePath()
+		context!.setFillColor(barColor.cgColor)
+		context!.fillPath();
+		context!.strokePath();
 		
-		let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+		let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
 		UIGraphicsEndImageContext()
 		return image
 	}
@@ -142,13 +142,13 @@ public class SwiftThicknessPicker: UIView {
 		currentSelectionX = ((CGFloat(value - minValue) * (size.width)) / CGFloat(maxValue - minValue)) + halfOffset
 		currentSelectionY = ((CGFloat(value - minValue) * (size.height)) / CGFloat(maxValue - minValue)) + halfOffset
 		
-		image = generateHUEImage(self.frame.size)
+		image = generateHUEImage(size: self.frame.size)
 	}
 	
 	// MARK: - Drawing
 	
-	override public func drawRect(rect: CGRect) {
-		super.drawRect(rect)
+	override public func draw(_ rect: CGRect) {
+		super.draw(rect)
 		
 		let radius = (direction == .Horizontal ? self.frame.size.height : self.frame.size.width)
 		let halfRadius = radius * 0.5
@@ -167,7 +167,7 @@ public class SwiftThicknessPicker: UIView {
 			circleY = 0
 		}
 		
-		let circleRect = (direction == .Horizontal ? CGRectMake(circleX, 0, radius, radius) : CGRectMake(0, circleY, radius, radius))
+		let circleRect = (direction == .Horizontal ? CGRect(x: circleX, y: 0, width: radius, height: radius) : CGRect(x: 0, y: circleY, width: radius, height: radius))
 		let circleColor = labelBackgroundColor
 		var imageRect = rect
 		
@@ -180,18 +180,18 @@ public class SwiftThicknessPicker: UIView {
 				imageRect.size.height -= radius
 				imageRect.origin.y += halfRadius
 			}
-			image.drawInRect(imageRect)
+			image.draw(in: imageRect)
 		}
 		
 		let context = UIGraphicsGetCurrentContext();
 		circleColor.set()
-		CGContextAddEllipseInRect(context, circleRect);
-		CGContextSetFillColor(context, CGColorGetComponents(circleColor.CGColor));
-		CGContextFillPath(context);
-		CGContextStrokePath(context);
+		context!.addEllipse(inRect: circleRect);
+		context!.setFillColor(circleColor.cgColor)
+		context!.fillPath();
+		context!.strokePath();
 		
 		let textParagraphStyle = NSMutableParagraphStyle()
-		textParagraphStyle.alignment = .Center
+		textParagraphStyle.alignment = .center
 		
 		let attributes: NSDictionary = [NSForegroundColorAttributeName: labelFontColor,
 			NSParagraphStyleAttributeName: textParagraphStyle,
@@ -200,31 +200,33 @@ public class SwiftThicknessPicker: UIView {
 		let text: NSString = "\(value)"
 		var textRect = circleRect
 		textRect.origin.y += (textRect.size.height - (labelFont?.lineHeight)!) * 0.5
-		text.drawInRect(textRect, withAttributes: attributes as? [String : AnyObject])
+		text.draw(in: textRect, withAttributes: attributes as? [String : AnyObject])
 	}
 	
 	// MARK: - Touch events
 	
-	override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let touch: AnyObject? = touches.first
-		let point = touch!.locationInView(self)
-		handleTouch(point)
+		if let point = touch?.location(in: self) {
+			handleTouch(touchPoint: point)
+		}
 	}
 	
-	override public func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let touch: AnyObject? = touches.first
-		let point = touch!.locationInView(self)
-		handleTouch(point)
+		if let point = touch?.location(in: self) {
+			handleTouch(touchPoint: point)
+		}
 	}
 	
-	override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let touch: AnyObject? = touches.first
-		let point = touch!.locationInView(self)
-		handleTouch(point)
+		if let point = touch?.location(in: self) {
+			handleTouch(touchPoint: point)
+		}
 	}
 	
-	override public func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-		
+	public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
 	}
 	
 	// MARK: - Touch handling
@@ -253,7 +255,7 @@ public class SwiftThicknessPicker: UIView {
 		value = minValue + Int(percent * CGFloat(maxValue - minValue))
 		
 		if delegate != nil {
-			delegate.valueChanged(value)
+			delegate.valueChanged(value: value)
 		}
 		
 		setNeedsDisplay()
