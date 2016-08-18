@@ -96,7 +96,7 @@ public class SwiftThicknessPicker: UIView {
 		bgColor.set()
 		UIRectFill(rect)
 		
-		let context = UIGraphicsGetCurrentContext();
+		let context = UIGraphicsGetCurrentContext()
 		barColor.set()
 		
 		let offset = (direction == .Horizontal ? size.height * 0.25 : size.width * 0.25)
@@ -104,21 +104,21 @@ public class SwiftThicknessPicker: UIView {
 		
 		context!.beginPath()
 		if direction == .Horizontal {
-			context!.moveTo(x: rect.maxX - doubleOffset, y: rect.minY + offset);
-			context!.addLineTo(x: rect.minX + doubleOffset, y: rect.midY);
-			context!.addLineTo(x: rect.maxX - doubleOffset, y: rect.maxY - offset);
+			context!.moveTo(x: rect.maxX - doubleOffset, y: rect.minY + offset)
+			context!.addLineTo(x: rect.minX + doubleOffset, y: rect.midY)
+			context!.addLineTo(x: rect.maxX - doubleOffset, y: rect.maxY - offset)
 			context!.addArc(centerX: rect.maxX - doubleOffset, y: rect.midY, radius: size.height * 0.25, startAngle: CGFloat(M_PI_2), endAngle: CGFloat(M_PI), clockwise: 1)
 		}
 		else {
-			context!.moveTo(x: rect.maxX - offset, y: rect.maxY - doubleOffset);
-			context!.addLineTo(x: rect.midX, y: rect.minY + doubleOffset);
-			context!.addLineTo(x: rect.minX + offset, y: rect.maxY - doubleOffset);
+			context!.moveTo(x: rect.maxX - offset, y: rect.maxY - doubleOffset)
+			context!.addLineTo(x: rect.midX, y: rect.minY + doubleOffset)
+			context!.addLineTo(x: rect.minX + offset, y: rect.maxY - doubleOffset)
 			context!.addArc(centerX: rect.midX, y: rect.maxY - doubleOffset, radius: size.width * 0.25, startAngle: CGFloat(M_PI), endAngle: CGFloat(M_PI + M_PI_2), clockwise: 1)
 		}
 		context!.closePath()
 		context!.setFillColor(barColor.cgColor)
-		context!.fillPath();
-		context!.strokePath();
+		context!.fillPath()
+		context!.strokePath()
 		
 		let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
 		UIGraphicsEndImageContext()
@@ -183,12 +183,12 @@ public class SwiftThicknessPicker: UIView {
 			image.draw(in: imageRect)
 		}
 		
-		let context = UIGraphicsGetCurrentContext();
+		let context = UIGraphicsGetCurrentContext()
 		circleColor.set()
-		context!.addEllipse(inRect: circleRect);
+		context!.addEllipse(inRect: circleRect)
 		context!.setFillColor(circleColor.cgColor)
-		context!.fillPath();
-		context!.strokePath();
+		context!.fillPath()
+		context!.strokePath()
 		
 		let textParagraphStyle = NSMutableParagraphStyle()
 		textParagraphStyle.alignment = .center
