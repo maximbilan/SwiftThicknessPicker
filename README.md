@@ -20,7 +20,7 @@ pod 'SwiftThicknessPicker'
 Copy <i>SwiftThicknessPicker.swift</i> to your project.
 </pre>
 
-<b>For running in Xcode 8 Beta please use <i>swift-3.0</i> branch.</b>
+<b>For running in Xcode 8 GM please use <i>swift-3.0</i> branch.</b>
 
 ## Using
 
