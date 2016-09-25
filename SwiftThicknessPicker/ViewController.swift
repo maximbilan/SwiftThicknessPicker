@@ -18,24 +18,24 @@ class ViewController: UIViewController, SwiftThicknessPickerDelegate {
 		super.viewDidLoad()
 		
 		horizontalThicknessPicker.delegate = self
-		horizontalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.Horizontal
+		horizontalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.horizontal
 		horizontalThicknessPicker.minValue = 1
 		horizontalThicknessPicker.maxValue = 20
 		horizontalThicknessPicker.currentValue = 17
 		
 		verticalThicknessPicker.delegate = self
-		verticalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.Vertical
+		verticalThicknessPicker.direction = SwiftThicknessPicker.PickerDirection.vertical
 	}
 
 	// MARK: - SwiftThicknessPickerDelegate
 	
-	func valueChanged(value: Int) {
+	func valueChanged(_ value: Int) {
 		testLabel.text = "\(value)"
 	}
 
 	// MARK: - Actions
 	
-	@IBAction func testButtonAction(sender: UIButton) {
+	@IBAction func testButtonAction(_ sender: UIButton) {
 		horizontalThicknessPicker.currentValue = 11
 		verticalThicknessPicker.currentValue = 20
 	}
