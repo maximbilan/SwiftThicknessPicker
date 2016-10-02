@@ -96,7 +96,7 @@ public class SwiftThicknessPicker: UIView {
 		bgColor.set()
 		UIRectFill(rect)
 		
-		let context = UIGraphicsGetCurrentContext();
+		let context = UIGraphicsGetCurrentContext()!
 		barColor.set()
 		
 		let offset = (direction == .Horizontal ? size.height * 0.25 : size.width * 0.25)
@@ -120,7 +120,7 @@ public class SwiftThicknessPicker: UIView {
 		CGContextFillPath(context);
 		CGContextStrokePath(context);
 		
-		let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+		let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
 		UIGraphicsEndImageContext()
 		return image
 	}
@@ -183,12 +183,12 @@ public class SwiftThicknessPicker: UIView {
 			image.drawInRect(imageRect)
 		}
 		
-		let context = UIGraphicsGetCurrentContext();
+		let context = UIGraphicsGetCurrentContext()!
 		circleColor.set()
-		CGContextAddEllipseInRect(context, circleRect);
-		CGContextSetFillColor(context, CGColorGetComponents(circleColor.CGColor));
-		CGContextFillPath(context);
-		CGContextStrokePath(context);
+		CGContextAddEllipseInRect(context, circleRect)
+		CGContextSetFillColor(context, CGColorGetComponents(circleColor.CGColor))
+		CGContextFillPath(context)
+		CGContextStrokePath(context)
 		
 		let textParagraphStyle = NSMutableParagraphStyle()
 		textParagraphStyle.alignment = .Center
