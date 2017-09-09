@@ -107,13 +107,13 @@ open class SwiftThicknessPicker: UIView {
 			context.move(to: CGPoint(x: rect.maxX - doubleOffset, y: rect.minY + offset))
 			context.addLine(to: CGPoint(x: rect.minX + doubleOffset, y: rect.midY))
 			context.addLine(to: CGPoint(x: rect.maxX - doubleOffset, y: rect.maxY - offset))
-			context.addArc(center: CGPoint(x: rect.maxX - doubleOffset, y: rect.midY), radius: size.height * 0.25, startAngle: CGFloat(Double.pi), endAngle: CGFloat(Double.pi), clockwise: true)
+			context.addArc(center: CGPoint(x: rect.maxX - doubleOffset, y: rect.midY), radius: size.height * 0.25, startAngle: CGFloat(Double.pi * 0.5), endAngle: CGFloat(Double.pi), clockwise: true)
 		}
 		else {
 			context.move(to: CGPoint(x: rect.maxX - offset, y: rect.maxY - doubleOffset))
 			context.addLine(to: CGPoint(x: rect.midX, y: rect.minY + doubleOffset))
 			context.addLine(to: CGPoint(x: rect.minX + offset, y: rect.maxY - doubleOffset))
-			context.addArc(center: CGPoint(x: rect.midX, y: rect.maxY - doubleOffset), radius: size.width * 0.25, startAngle: CGFloat(Double.pi), endAngle: CGFloat(Double.pi + Double.pi / 2), clockwise: true)
+			context.addArc(center: CGPoint(x: rect.midX, y: rect.maxY - doubleOffset), radius: size.width * 0.25, startAngle: CGFloat(Double.pi), endAngle: CGFloat(Double.pi + (Double.pi * 0.5)), clockwise: true)
 		}
 		context.closePath()
 		context.setFillColor(barColor.cgColor)
