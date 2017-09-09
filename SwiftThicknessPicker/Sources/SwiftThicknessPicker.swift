@@ -107,13 +107,13 @@ open class SwiftThicknessPicker: UIView {
 			context.move(to: CGPoint(x: rect.maxX - doubleOffset, y: rect.minY + offset))
 			context.addLine(to: CGPoint(x: rect.minX + doubleOffset, y: rect.midY))
 			context.addLine(to: CGPoint(x: rect.maxX - doubleOffset, y: rect.maxY - offset))
-			context.addArc(center: CGPoint(x: rect.maxX - doubleOffset, y: rect.midY), radius: size.height * 0.25, startAngle: CGFloat(M_PI_2), endAngle: CGFloat(M_PI), clockwise: true)
+			context.addArc(center: CGPoint(x: rect.maxX - doubleOffset, y: rect.midY), radius: size.height * 0.25, startAngle: CGFloat(Double.pi), endAngle: CGFloat(Double.pi), clockwise: true)
 		}
 		else {
 			context.move(to: CGPoint(x: rect.maxX - offset, y: rect.maxY - doubleOffset))
 			context.addLine(to: CGPoint(x: rect.midX, y: rect.minY + doubleOffset))
 			context.addLine(to: CGPoint(x: rect.minX + offset, y: rect.maxY - doubleOffset))
-			context.addArc(center: CGPoint(x: rect.midX, y: rect.maxY - doubleOffset), radius: size.width * 0.25, startAngle: CGFloat(M_PI), endAngle: CGFloat(M_PI + M_PI_2), clockwise: true)
+			context.addArc(center: CGPoint(x: rect.midX, y: rect.maxY - doubleOffset), radius: size.width * 0.25, startAngle: CGFloat(Double.pi), endAngle: CGFloat(Double.pi + Double.pi / 2), clockwise: true)
 		}
 		context.closePath()
 		context.setFillColor(barColor.cgColor)
@@ -193,14 +193,14 @@ open class SwiftThicknessPicker: UIView {
 		let textParagraphStyle = NSMutableParagraphStyle()
 		textParagraphStyle.alignment = .center
 		
-		let attributes: NSDictionary = [NSAttributedStringKey.foregroundColor: labelFontColor,
-		                                NSAttributedStringKey.paragraphStyle: textParagraphStyle,
-		                                NSAttributedStringKey.font: labelFont!]
+		let attributes: [NSAttributedStringKey : Any] = [NSAttributedStringKey.foregroundColor: labelFontColor,
+		                                                 NSAttributedStringKey.paragraphStyle: textParagraphStyle,
+		                                                 NSAttributedStringKey.font: labelFont!]
 		
 		let text = String(value) as NSString
 		var textRect = circleRect
 		textRect.origin.y += (textRect.size.height - (labelFont?.lineHeight)!) * 0.5
-		text.draw(in: textRect, withAttributes: attributes as! [NSAttributedStringKey : Any])
+		text.draw(in: textRect, withAttributes: attributes)
 	}
 	
 	// MARK: - Touch events
