@@ -12,19 +12,8 @@
 		6D7EB8601B01E34B001D08D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D7EB85E1B01E34B001D08D3 /* Main.storyboard */; };
 		6D7EB8621B01E34B001D08D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D7EB8611B01E34B001D08D3 /* Images.xcassets */; };
 		6D7EB8651B01E34B001D08D3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7EB8631B01E34B001D08D3 /* LaunchScreen.xib */; };
-		6D7EB8711B01E34B001D08D3 /* SwiftThicknessPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EB8701B01E34B001D08D3 /* SwiftThicknessPickerTests.swift */; };
 		6D7EB87B1B01E3C8001D08D3 /* SwiftThicknessPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EB87A1B01E3C8001D08D3 /* SwiftThicknessPicker.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6D7EB86B1B01E34B001D08D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6D7EB84D1B01E34B001D08D3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6D7EB8541B01E34B001D08D3;
-			remoteInfo = SwiftThicknessPicker;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6D7EB8551B01E34B001D08D3 /* SwiftThicknessPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftThicknessPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,7 +23,6 @@
 		6D7EB85F1B01E34B001D08D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D7EB8611B01E34B001D08D3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6D7EB8641B01E34B001D08D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6D7EB86A1B01E34B001D08D3 /* SwiftThicknessPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftThicknessPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D7EB86F1B01E34B001D08D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D7EB8701B01E34B001D08D3 /* SwiftThicknessPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftThicknessPickerTests.swift; sourceTree = "<group>"; };
 		6D7EB87A1B01E3C8001D08D3 /* SwiftThicknessPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftThicknessPicker.swift; path = Sources/SwiftThicknessPicker.swift; sourceTree = "<group>"; };
@@ -42,13 +30,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		6D7EB8521B01E34B001D08D3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6D7EB8671B01E34B001D08D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				6D7EB8551B01E34B001D08D3 /* SwiftThicknessPicker.app */,
-				6D7EB86A1B01E34B001D08D3 /* SwiftThicknessPickerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,24 +115,6 @@
 			productReference = 6D7EB8551B01E34B001D08D3 /* SwiftThicknessPicker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6D7EB8691B01E34B001D08D3 /* SwiftThicknessPickerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6D7EB8771B01E34B001D08D3 /* Build configuration list for PBXNativeTarget "SwiftThicknessPickerTests" */;
-			buildPhases = (
-				6D7EB8661B01E34B001D08D3 /* Sources */,
-				6D7EB8671B01E34B001D08D3 /* Frameworks */,
-				6D7EB8681B01E34B001D08D3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6D7EB86C1B01E34B001D08D3 /* PBXTargetDependency */,
-			);
-			name = SwiftThicknessPickerTests;
-			productName = SwiftThicknessPickerTests;
-			productReference = 6D7EB86A1B01E34B001D08D3 /* SwiftThicknessPickerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -167,11 +129,6 @@
 					6D7EB8541B01E34B001D08D3 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
-					};
-					6D7EB8691B01E34B001D08D3 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-						TestTargetID = 6D7EB8541B01E34B001D08D3;
 					};
 				};
 			};
@@ -189,7 +146,6 @@
 			projectRoot = "";
 			targets = (
 				6D7EB8541B01E34B001D08D3 /* SwiftThicknessPicker */,
-				6D7EB8691B01E34B001D08D3 /* SwiftThicknessPickerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -202,13 +158,6 @@
 				6D7EB8601B01E34B001D08D3 /* Main.storyboard in Resources */,
 				6D7EB8651B01E34B001D08D3 /* LaunchScreen.xib in Resources */,
 				6D7EB8621B01E34B001D08D3 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6D7EB8681B01E34B001D08D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,23 +174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6D7EB8661B01E34B001D08D3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6D7EB8711B01E34B001D08D3 /* SwiftThicknessPickerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6D7EB86C1B01E34B001D08D3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6D7EB8541B01E34B001D08D3 /* SwiftThicknessPicker */;
-			targetProxy = 6D7EB86B1B01E34B001D08D3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6D7EB85E1B01E34B001D08D3 /* Main.storyboard */ = {
@@ -390,39 +323,6 @@
 			};
 			name = Release;
 		};
-		6D7EB8781B01E34B001D08D3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SwiftThicknessPickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "maximbilan.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftThicknessPicker.app/SwiftThicknessPicker";
-			};
-			name = Debug;
-		};
-		6D7EB8791B01E34B001D08D3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SwiftThicknessPickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "maximbilan.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftThicknessPicker.app/SwiftThicknessPicker";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -440,15 +340,6 @@
 			buildConfigurations = (
 				6D7EB8751B01E34B001D08D3 /* Debug */,
 				6D7EB8761B01E34B001D08D3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6D7EB8771B01E34B001D08D3 /* Build configuration list for PBXNativeTarget "SwiftThicknessPickerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6D7EB8781B01E34B001D08D3 /* Debug */,
-				6D7EB8791B01E34B001D08D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
