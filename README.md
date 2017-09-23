@@ -3,6 +3,8 @@
 [![Version](https://img.shields.io/cocoapods/v/SwiftThicknessPicker.svg?style=flat)](http://cocoadocs.org/docsets/SwiftThicknessPicker)
 [![License](https://img.shields.io/cocoapods/l/SwiftThicknessPicker.svg?style=flat)](http://cocoadocs.org/docsets/SwiftThicknessPicker)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftThicknessPicker.svg?style=flat)](http://cocoadocs.org/docsets/SwiftThicknessPicker)
+[![CocoaPods](https://img.shields.io/cocoapods/dt/SwiftThicknessPicker.svg)](https://cocoapods.org/pods/SwiftThicknessPicker)
+[![CocoaPods](https://img.shields.io/cocoapods/dm/SwiftThicknessPicker.svg)](https://cocoapods.org/pods/SwiftThicknessPicker)
 
 Simple iOS thickness picker.<br>
 Supports two modes: vertical and horizontal. 
@@ -44,7 +46,7 @@ Direction:
 picker.direction = SwiftThicknessPicker.PickerDirection.Vertical // Vertical, Horizontal
 </pre>
 
-Also you can change current value, maximum value or minimum value, for example:
+Also, you can change current value, the maximum value or minimum value, for example:
 <pre>
 picker.currentValue = 0
 picker.maxValue     = 30
