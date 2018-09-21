@@ -193,9 +193,9 @@ open class SwiftThicknessPicker: UIView {
 		let textParagraphStyle = NSMutableParagraphStyle()
 		textParagraphStyle.alignment = .center
 		
-		let attributes: [NSAttributedStringKey : Any] = [NSAttributedStringKey.foregroundColor: labelFontColor,
-		                                                 NSAttributedStringKey.paragraphStyle: textParagraphStyle,
-		                                                 NSAttributedStringKey.font: labelFont!]
+		let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor: labelFontColor,
+		                                                 NSAttributedString.Key.paragraphStyle: textParagraphStyle,
+		                                                 NSAttributedString.Key.font: labelFont!]
 		
 		let text = String(value) as NSString
 		var textRect = circleRect
