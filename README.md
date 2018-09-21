@@ -50,9 +50,9 @@ picker.minValue     = 1
 </pre>
 And other settings:
 <pre>
-labelFontColor        // Font color of the moving label
-labelBackgroundColor  // Background color of the moving label
-labelFont             // Font of the moving label
+labelFontColor        // A font color of the moving label
+labelBackgroundColor  // A background color of the moving label
+labelFont             // A font of the moving label
 </pre>
 
 ## License
