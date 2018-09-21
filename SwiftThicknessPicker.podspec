@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
 s.name         = "SwiftThicknessPicker"
-s.version      = "0.6"
+s.version      = "0.6.1"
 s.summary      = "Swift Thickness Picker"
-s.description  = "Simple iOS Thickness Picker"
+s.description  = "A simple iOS Thickness Picker"
 s.homepage     = "https://github.com/maximbilan/SwiftThicknessPicker"
 s.license      = { :type => "MIT" }
 s.author       = { "Maxim Bilan" => "maximb.mail@gmail.com" }
