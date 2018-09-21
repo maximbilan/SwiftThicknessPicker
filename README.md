@@ -6,7 +6,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/dt/SwiftThicknessPicker.svg)](https://cocoapods.org/pods/SwiftThicknessPicker)
 [![CocoaPods](https://img.shields.io/cocoapods/dm/SwiftThicknessPicker.svg)](https://cocoapods.org/pods/SwiftThicknessPicker)
 
-Simple iOS thickness picker.<br>
+A simple iOS thickness picker.<br>
 Supports two modes: vertical and horizontal. 
 
 ![alt tag](https://raw.github.com/maximbilan/SwiftThicknessPicker/master/img/img1.png)
@@ -15,11 +15,7 @@ Supports two modes: vertical and horizontal.
 
 <b>CocoaPods:</b>
 <pre>
-Swift 3.0:
-pod 'SwiftThicknessPicker', '0.5'
-
-Swift 4.0:
-pod 'SwiftThicknessPicker', '~> 0.6'
+pod 'SwiftThicknessPicker'
 </pre>
 
 <b>Manual:</b>
